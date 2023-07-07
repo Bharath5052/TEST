@@ -6,8 +6,28 @@ on:
       - main
 
 jobs:
-  build:
+  build-ubuntu:
     runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print Hello, world
+      run: echo "Hello, world"
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print Hello, world
+      run: echo "Hello, world"
+
+  build-macos:
+    runs-on: macos-latest
 
     steps:
     - name: Checkout repository
