@@ -2,20 +2,31 @@ name: HelloWorld
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
+    
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+  usingUbuntu:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Print Hello, world
+      run: echo "Hello, world"
 
+  usingWindows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Print Hello, world
+      run: echo "Hello, world"
+  
+
+  usingMacOS:
+    runs-on: macos-latest
+
+    steps:
+   - uses: actions/checkout@v3
     - name: Print Hello, world
       run: echo "Hello, world"
